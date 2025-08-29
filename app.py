@@ -4,7 +4,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 import pickle
 
-# Load model
+
 @st.cache_resource
 def get_model():
     model = load_model("best_model.keras")
@@ -12,7 +12,6 @@ def get_model():
 
 model = get_model()
 
-# Load idx2char mapping
 with open("idx2char.pkl", "rb") as f:
     idx2char = pickle.load(f)
 
@@ -39,10 +38,9 @@ def generate_text(model, start_string, num_generate=2, temperature=1.0):
     return start_string + ''.join(text_generated)
 
 
-# Title
 st.title("🔮 My Text Generation App")
 
-# User input
+
 user_input = st.text_input("Enter some text:")
 
 if st.button("Predict"):
