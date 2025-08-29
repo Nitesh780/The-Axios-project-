@@ -38,7 +38,7 @@ def generate_text(model, start_string, num_generate=2, temperature=1.0):
     return start_string + ''.join(text_generated)
 
 
-st.title("🔮 My Text Generation App")
+st.title("My Text Generation App")
 
 
 user_input = st.text_input("Enter some text:")
