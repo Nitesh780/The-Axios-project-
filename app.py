@@ -19,7 +19,7 @@ with open("char2idx.pkl", "rb") as f:
     char2idx = pickle.load(f)
 
 model = tf.keras.models.load_model("best_model.keras", compile=False)
-def generate_text(model, start_string, num_generate=2, temperature=1.0):
+def generate_text(model, start_string, num_generate=2, temperature=0.6):
     input_eval= [char2idx.get(s, 0) for s in start_string.lower()]
     input_eval = tf.expand_dims(input_eval, 0)
 
